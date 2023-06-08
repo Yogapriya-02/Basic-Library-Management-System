@@ -1,1 +1,1 @@
-A basic library managemnet system website using html,css and javascript.
+A basic library management system website using html, css and javascript.
