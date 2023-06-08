@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/9c9418eed7.js" crossorigin="anonymous"></script>
+        <link rel ="stylesheet" href="category.css">
+    </head>
+    <body>
+        <h1>TECHNICAL BOOKS</h1>
+        <div class="contain">
+            <form>
+                <input type="text" id="searchBox" placeholder="Search here">
+                <button type="submit" >Search</button>
+            
+            </form>
+        </div>
+        <div class ="table-box">
+            <div class="table-row table-head">
+                <div class="table-cell">
+                    <div>Name of the book</div>
+                </div>
+                <div class="table-cell">
+                    <div>Author</div>
+                </div>
+                <div class="table-cell">
+                    <div>Subject</div>
+                </div>
+                <div class="table-cell">
+                    <div>Publish Date</div>
+                </div>
+                <div class="table-cell">
+                    <div>Version</div>
+                </div>
+                <div class="table-cell">
+                    <div>Availability</div>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div>Artificial Intelligence: A Modern Approach</div>
+                </div>
+                <div class="table-cell">
+                    <div>Stuart Russell, Peter Norvig</div>
+                </div>
+                <div class="table-cell">
+                    <div>Artificial Intelligence</div>
+                </div>
+                <div class="table-cell">
+                    <div>September 10, 2019</div>
+                </div>
+                <div class="table-cell">
+                    <div> 4th Edition</div>
+                </div>
+                <div class="table-cell">
+                    <div>Available</div>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div>Clean Code: A Handbook of Agile Software Craftsmanship</div>
+                </div>
+                <div class="table-cell">
+                    <div>Robert C. Martin</div>
+                </div>
+                <div class="table-cell">
+                    <div>Software Development, Programming</div>
+                </div>
+                <div class="table-cell">
+                    <div>August 11, 2008</div>
+                </div>
+
+                <div class="table-cell">
+                    <div>1st Edition</div>
+                </div>
+                <div class="table-cell">
+                    <div>AVAILABLE</div>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div>Database Systems: The Complete Book</div>
+                </div>
+                <div class="table-cell">
+                    <div>James Johnson, Rebecca Jackson</div>
+                </div>
+                <div class="table-cell">
+                    <div> Database Management Systems</div>
+                </div>
+                <div class="table-cell">
+                    <div>July 5, 2020</div>
+                </div>
+
+                <div class="table-cell">
+                    <div>2nd Edition</div>
+                </div>
+                <div class="table-cell">
+                    <div>AVAILABLE</div>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div>Data Structures and Algorithms</div>
+                </div>
+                <div class="table-cell">
+                    <div>Jane Doe</div>
+                </div>
+                <div class="table-cell">
+                    <div>Computer Science</div>
+                </div>
+                <div class="table-cell">
+                    <div>March 15, 2020</div>
+                </div>
+
+                <div class="table-cell">
+                    <div>3rd Edition</div>
+                </div>
+                <div class="table-cell">
+                    <div>AVAILABLE</div>
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">
+                    <div>Design Patterns: Elements of Reusable Object-Oriented Software</div>
+                </div>
+                <div class="table-cell">
+                    <div> Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides</div>
+                </div>
+                <div class="table-cell">
+                    <div>Software Design, Object-Oriented Programming</div>
+                </div>
+                <div class="table-cell">
+                    <div>November 10, 1994</div>
+                </div>
+                <div class="table-cell">
+                    <div>1st Edition</div>
+                </div>
+                <div class="table-cell">
+                    <div>Borrowed</div>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="container">
+            <div class="pagination">
+                <button class="btnl" onclick="backBtn()">
+                    <i class="fas fa-arrow-left"></i> Prev
+                </button>
+                <ul>
+                    <li class="link active" value="1" onclick="activateLink1()">1</li>
+                    <li class="link" value="2" onclick="activateLink2()">2</li>        
+                </ul>
+                <button class="btnl" onclick="nextBtn()">Next  <i class="fas fa-arrow-right" ></i></button>
+            </div>
+        </div>
+        <script>
+            let link = document.getElementsByClassName("link");
+            let currentValue = 1;
+            function activateLink1(){
+                for(l of link){
+                    l.classList.remove("active");
+                }
+                event.target.classList.add("active");
+                currentValue = event.target.value;
+                window.location.href = "category.html";
+            };
+            function activateLink2(){
+                for(l of link){
+                    l.classList.remove("active");
+                }
+                event.target.classList.add("active");
+                currentValue = event.target.value;
+                window.location.href = "category2.html";
+            };
+            function backBtn(){
+                if(currentValue > 1){
+                    for(l of link){
+                        l.classList.remove("active");
+                    }
+                    currentValue--;
+                    link[currentValue-1].classList.add("active");
+
+                }
+            };
+            function nextBtn(){
+                if(currentValue < 7){
+                    for(l of link){
+                        l.classList.remove("active");
+                    }
+                    currentValue++;
+                    link[currentValue-1].classList.add("active");
+
+                }
+            };
+        </script>
+        <script>
+                const searchBox = document.getElementById('searchBox');
+                const tableRows = document.getElementsByClassName('table-row');
+                searchBox.addEventListener('input', function() {
+                    const searchTerm = searchBox.value.toLowerCase();
+                    for (let i = 1; i < tableRows.length; i++) { // Start from index 1 to exclude the table header row
+                        const rowCells = tableRows[i].getElementsByClassName('table-cell');
+                        let rowMatchesSearch = false;
+                        for (let j = 0; j < rowCells.length; j++) {
+                            const cellText = rowCells[j].textContent.toLowerCase();
+                            if (cellText.includes(searchTerm)) {
+                                rowMatchesSearch = true;
+                                break;
+                            }
+                        }
+                        if (rowMatchesSearch) {
+                            tableRows[i].style.display = 'block'; // Show the row if it matches the search term
+                        } else {
+                            tableRows[i].style.display = 'none'; // Hide the row if it doesn't match the search ter
+                        }
+                    }
+                });
+        </script>
+        
+        
+    </body>
+</html>
